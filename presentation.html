@@ -13,6 +13,8 @@
   <script src="skin/xregexp-min.js" type="text/javascript"></script>
   <script src="skin/syntax_highlighter/shCore.js" type="text/javascript"></script>
   <script src="skin/syntax_highlighter/shBrushRuby.js" type="text/javascript"></script>
+  <script src="skin/syntax_highlighter/shBrushBash.js" type="text/javascript"></script>
+  <script src="skin/syntax_highlighter/shBrushPlain.js" type="text/javascript"></script>
   <script src="skin/highlighter.js" type="text/javascript"></script>
 </head>
 <body>
@@ -52,7 +54,7 @@
         <img src="skin/images/rails-logo.jpg" id="bundler-logo" alt="Ruby on Rails" title="Ruby on Rails" style="width: 40%; float: left;" />
         <img src="skin/images/rvm-logo.png" id="bundler-logo" alt="Ruby Version Manager" title="Ruby Version Manager" style="width: 40%; float: right;" />
         <img src="skin/images/bundler-logo.png" id="bundler-logo" alt="Bundler: The best way to manage your application's dependencies" title="Bundler: The best way to manage your application's dependencies" style="width: 80%;" />
-      </center>
+      </div>
     </div>
     <div class="slide">
       <h1>What is Bundler?</h1>
@@ -112,6 +114,51 @@
           gem "rspec", :require => "spec"
         end
       </pre>
+    </div>
+    <div class="slide">
+      <h1>Setup your app to use your bundle</h1>
+      <pre class="brush: ruby;">
+        require "rubygems"
+        require "bundler"
+        Bundler.setup
+
+        require "nokogiri"
+        # any other requires you might need
+      </pre>
+    </div>
+    <div class="slide">
+      <h1>Bundle your Gems</h1>
+      <pre class="brush: plain;">
+        # Get Bundler and an up to date RubyGems environment
+        $ gem install bundler
+        $ gem update --system
+        
+        # Get your gems and track your Gemfile
+        $ bundle install
+        $ git add Gemfile
+        
+        # Run a command provided by a gem
+        $ bundle exec rackup
+      </pre>
+    </div>
+    <div class="slide">
+      <h1>When you're ready to deploy</h1>
+      <pre class="brush: plain;">
+        $ bundle lock
+        $ git add Gemfile.lock
+      </pre>
+    </div>
+    <div class="slide">
+      <h1>Learn More about Bundler</h1>
+      <center>
+        <a href="http://gembundler.com/"><img src="skin/images/bundler-logo.png" id="bundler-logo" alt="Bundler: The best way to manage your application's dependencies" title="Bundler: The best way to manage your application's dependencies" /></a>
+      </center>
+    </div>
+    <div class="slide">
+      <h1>Ruby Version Manager</h1>
+      <center>
+        <img src="skin/images/rvm-logo.png" id="bundler-logo" alt="Ruby Version Manager" title="Ruby Version Manager" />
+      </center>
     </div>
   </div>
 </body>
