@@ -240,6 +240,108 @@
         <li>More! -- Read all the resources.</li>
       </ul>
     </div>
+    <div class="slide">
+      <h1>ActiveRecord -- New query syntax</h1>
+      <h2>Old</h2>
+      <pre class="brush: ruby;">
+        User.find(:all, :limit => 1)
+        User.find(:all)
+        User.find(:first)
+        User.first(:conditions => {:name => 'lifo'})
+        User.all(:joins => :items)
+      </pre>
+      <h2>New</h2>
+      <pre class="brush: ruby;">
+        User.limit(1).all
+        User.all
+        User.first
+        User.where(:name => 'lifo').first
+        User.joins(:items).all
+      </pre>
+    </div>
+    <div class="slide">
+      <h1>ActionMailer -- The old way sucks</h1>
+      <pre class="brush: ruby;">
+        class Notifier < ActionMailer::Base
+           def signup_notification(recipient)
+             recipients      recipient.email_address_with_name
+             subject         "New account information"
+             from            "system@example.com"
+             content_type    "multipart/alternative"
+             body            :account => recipient
+
+             part :content_type => "text/html",
+               :data => render_message("signup-as-html")
+
+             part "text/plain" do |p|
+               p.body = render_message("signup-as-plain")
+               p.content_transfer_encoding = "base64"
+             end
+
+             attachment "application/pdf" do |a|
+               a.body = generate_your_pdf_here()
+             end
+
+             attachment :content_type => "image/jpeg",
+               :body => File.read("an-image.jpg")
+
+           end
+         end
+      </pre>
+    </div>
+    <div class="slide">
+      <h1>ActionMailer 3 -- A LOT LESS CRAPPY!</h1>
+      <pre class="brush: ruby;">
+        class Notifier < ActionMailer::Base
+          default :from => "system@example.com"
+
+          def signup_notification(recipient)
+            @account = recipient
+
+            attachments['an-image.jp'] = File.read("an-image.jpg")
+            attachments['terms.pdf'] = {:content => generate_your_pdf_here() }
+
+            mail(:to => recipient.email_address_with_name,
+                 :subject => "New account information")
+          end
+        end
+      </pre>
+    </div>
+    <div class="slide">
+      <h1>Router -- Getting of the Hash!</h1>
+      <h2>Old</h2>
+      <pre class="brush: ruby;">
+        map.resources :products, :member => {:short => :post}, :collection => {:long => :get} do |products|
+          products.resource :category
+        end
+      </pre>
+      <h2>New</h2>
+      <pre class="brush: ruby;">
+        resources :products do
+          resource :category
+
+          member do
+            post :short
+          end
+
+          collection do
+            get :long
+          end
+        end
+      </pre>
+    </div>
+    <div class="slide">
+      <h1>I can't teach you Rails 3</h1>
+      <h2>You need to read the stuff and build or upgrade some apps!</h2>
+    </div>
+    <div class="slide">
+      <h1>Thanks!</h1>
+      <p>Come to <a href="http://rubybayou.com">Ruby Bayou</a> July 29th to hear about developing desktop apps in Ruby with <a href="http://wxruby.rubyforge.org/wiki/wiki.pl">WxRuby</a>.</p>
+      <center>
+        <a href="http://rubybayou.com/"><img src="skin/images/rubybayou-logo.jpg" alt="Ruby Bayou: New Orleans Ruby User Group" title"Ruby Bayou: New Orleans Ruby User Group" /></a>
+      </center>
+      <p><strong>Plus!</strong> <a href="http://rubyconf.org/">RubyConf X</a> is coming to New Orleans in November!</p>
+      <p><strong>And!</strong> We are planning to have a team for the 2010 <a href="http://www.railsrumble.com/">Rails Rumble</a>!</p>
   </div>
 </body>
 </html>
