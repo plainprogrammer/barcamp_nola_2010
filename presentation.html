@@ -3,17 +3,17 @@
 <head>
   <title>The Ruby Show</title>
   <meta name="version" content="S5 1.0" />
-  <link rel="stylesheet" href="../skin/default/slides.css" type="text/css" media="projection" id="slideProj" />
-  <link rel="stylesheet" href="../skin/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
-  <link rel="stylesheet" href="../skin/default/print.css" type="text/css" media="print" id="slidePrint" />
-  <link rel="stylesheet" href="../skin/default/opera.css" type="text/css" media="projection" id="operaFix" />
-  <link href="../skin/syntax_highlighter/shCoreMidnight.css" rel="stylesheet" type="text/css" />
-  <link href="../skin/syntax_highlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" />
-  <script src="../skin/default/slides.js" type="text/javascript"></script>
-  <script src="../skin/xregexp-min.js" type="text/javascript"></script>
-  <script src="../skin/syntax_highlighter/shCore.js" type="text/javascript"></script>
-  <script src="../skin/syntax_highlighter/shBrushRuby.js" type="text/javascript"></script>
-  <script src="../skin/highlighter.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="skin/default/slides.css" type="text/css" media="projection" id="slideProj" />
+  <link rel="stylesheet" href="skin/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+  <link rel="stylesheet" href="skin/default/print.css" type="text/css" media="print" id="slidePrint" />
+  <link rel="stylesheet" href="skin/default/opera.css" type="text/css" media="projection" id="operaFix" />
+  <link href="skin/syntax_highlighter/shCoreMidnight.css" rel="stylesheet" type="text/css" />
+  <link href="skin/syntax_highlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" />
+  <script src="skin/default/slides.js" type="text/javascript"></script>
+  <script src="skin/xregexp-min.js" type="text/javascript"></script>
+  <script src="skin/syntax_highlighter/shCore.js" type="text/javascript"></script>
+  <script src="skin/syntax_highlighter/shBrushRuby.js" type="text/javascript"></script>
+  <script src="skin/highlighter.js" type="text/javascript"></script>
 </head>
 <body>
   <div class="layout">
@@ -47,6 +47,14 @@
       </ul>
     </div>
     <div class="slide">
+      <h1>Rails 3, Bundler &amp; RVM</h1>
+      <div style="width: 50%; margin: 0 auto; text-align: center;">
+        <img src="skin/images/rails-logo.jpg" id="bundler-logo" alt="Ruby on Rails" title="Ruby on Rails" style="width: 40%; float: left;" />
+        <img src="skin/images/rvm-logo.png" id="bundler-logo" alt="Ruby Version Manager" title="Ruby Version Manager" style="width: 40%; float: right;" />
+        <img src="skin/images/bundler-logo.png" id="bundler-logo" alt="Bundler: The best way to manage your application's dependencies" title="Bundler: The best way to manage your application's dependencies" style="width: 80%;" />
+      </center>
+    </div>
+    <div class="slide">
       <h1>What is Bundler?</h1>
       <center>
         <img src="skin/images/bundler-logo.png" id="bundler-logo" alt="Bundler: The best way to manage your application's dependencies" title="Bundler: The best way to manage your application's dependencies" />
@@ -54,7 +62,7 @@
       </center>
     </div>
     <div class="slide">
-      <h1>Gemspec</h1>
+      <h1>Gemfile</h1>
       <pre class="brush: ruby;">
         source "http://rubygems.org"
         
@@ -68,7 +76,7 @@
     </div>
     <div class="slide">
       <h1>Where you comin' from?</h1>
-      <pre class="brush: ruby; highlight: 1">
+      <pre class="brush: ruby; highlight: 1;">
         source "http://rubygems.org"
         
         gem "nokogiri"
@@ -76,6 +84,32 @@
         
         group :test do
           gem "rspec", :reqskinre => "spec"
+        end
+      </pre>
+    </div>
+    <div class="slide">
+      <h1>What do you want?</h1>
+      <pre class="brush: ruby; highlight: [3,4,7];">
+        source "http://rubygems.org"
+        
+        gem "nokogiri"
+        gem "rack", "~>1.1"
+        
+        group :test do
+          gem "rspec", :require => "spec"
+        end
+      </pre>
+    </div>
+    <div class="slide">
+      <h1>When do you want it?</h1>
+      <pre class="brush: ruby; highlight: [6,8];">
+        source "http://rubygems.org"
+        
+        gem "nokogiri"
+        gem "rack", "~>1.1"
+        
+        group :test do
+          gem "rspec", :require => "spec"
         end
       </pre>
     </div>
