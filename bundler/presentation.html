@@ -7,11 +7,13 @@
   <link rel="stylesheet" href="../ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
   <link rel="stylesheet" href="../ui/default/print.css" type="text/css" media="print" id="slidePrint" />
   <link rel="stylesheet" href="../ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+  <link href="../ui/syntax_highlighter/shCoreMidnight.css" rel="stylesheet" type="text/css" />
+  <link href="../ui/syntax_highlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" />
   <script src="../ui/default/slides.js" type="text/javascript"></script>
-  <script src="../ui/jquery-1.4.2.min.js" type="text/javascript"></script>
-  <script src="../ui/chili/jquery.chili-2.2.js" type="text/javascript"></script>
-  <script src="../ui/chili/recipes.js" type="text/javascript"></script>
-  <script src="../ui/presentation.js" type="text/javascript"></script>
+  <script src="../ui/xregexp-min.js" type="text/javascript"></script>
+  <script src="../ui/syntax_highlighter/shCore.js" type="text/javascript"></script>
+  <script src="../ui/syntax_highlighter/shBrushRuby.js" type="text/javascript"></script>
+  <script src="../ui/highlighter.js" type="text/javascript"></script>
 </head>
 <body>
   <div class="layout">
@@ -46,6 +48,36 @@
     </div>
     <div class="slide">
       <h1>What is Bundler?</h1>
+      <center>
+        <img src="images/bundler-logo.png" id="bundler-logo" alt="Bundler: The best way to manage your application's dependencies" title="Bundler: The best way to manage your application's dependencies" />
+        <p>Bundler is a new way to systematically and repeatably manage Ruby application dependencies.</p>
+      </center>
+    </div>
+    <div class="slide">
+      <h1>Gemspec</h1>
+      <pre class="brush: ruby;">
+        source "http://rubygems.org"
+        
+        gem "nokogiri"
+        gem "rack", "~>1.1"
+        
+        group :test do
+          gem "rspec", :require => "spec"
+        end
+      </pre>
+    </div>
+    <div class="slide">
+      <h1>Where you comin' from?</h1>
+      <pre class="brush: ruby; highlight: 1">
+        source "http://rubygems.org"
+        
+        gem "nokogiri"
+        gem "rack", "~>1.1"
+        
+        group :test do
+          gem "rspec", :require => "spec"
+        end
+      </pre>
     </div>
   </div>
 </body>
