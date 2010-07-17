@@ -1,28 +1,6 @@
 BarCampNOLA 2010
 ================
 
-This repository contains the presentations given by James Thompson
-(@plainprogrammer) at BarCampNOLA 2010.
-
-
-Bundler: Why Ruby has the best dependency management around
------------------------------------------------------------
-
-This presentation covers why, with the availability of Bundler, even awesome
-dependency management setups like CPAN and PyPI suck in comparison to the
-hotness of Ruby.
-
-
-Ruby Version Manager: Develop for any or every Ruby
----------------------------------------------------
-
-This presentation provides an overview of using RVM to target development on
-a wide variety of Ruby interpreters; including multiple versions of the
-standard MRI, Rubinius, MacRuby, IronRuby and Ruby Enterprise Edition.
-
-
-Rails 3: Let the Ruby envy ensue
---------------------------------
-
-This presentation covers the major new features and hotness in the newest
-version of Rails now available in beta.
+This repository contains the presentation given by James Thompson
+(@plainprogrammer) at BarCampNOLA 2010. The presentation covered Rails 3,
+Bundler and RVM.
